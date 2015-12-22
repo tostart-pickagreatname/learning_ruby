@@ -14,3 +14,13 @@ walk(:north)
 
 # expect no output, as :east is not handled as an option
 walk(:east)
+
+# often symbols are used as keys in hashes. This makes sense as we know that they will be unique, which is a requirement for the keys of hashes.
+
+things = {
+  :one	=> 'first thing',
+  :another => 'another thing'
+}
+
+puts things[:one] # => 'first thing'
+
