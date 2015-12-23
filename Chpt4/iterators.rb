@@ -45,4 +45,16 @@ end
 puts filter_nil([nil,nil,false,:j,nil]) {|v| v}
 
 
+# if you want to keep track of where you are, then use the with_index method.
+# if you want to count things in the block, then use the .inject method. for example
+[1,3,5,7].inject(0) {|sum,thing| sum+thing} # => 16
+[1,3,5,7].inject(1) {|prod,thing| prod*thing} #=> 105
+
+#The initial value is given with inject, then the operation is performed on that and the next thing in the list, keeping track of the initial value.
+#This is just iterating through and keeping the last thing returned and then giving more things.
+
+# If given no parameter then inject will use the first element of the array as the parameter, so [a,b,c,...].inject is the same as [b,c,...].inject(a).
+# If you want to give it a pre-defined method then you can also do that by giving its name, for example [1,3,5,7].inject(:+) => 16 (just adding things as above)
+
+
 
