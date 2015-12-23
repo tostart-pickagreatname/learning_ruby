@@ -57,4 +57,19 @@ puts filter_nil([nil,nil,false,:j,nil]) {|v| v}
 # If you want to give it a pre-defined method then you can also do that by giving its name, for example [1,3,5,7].inject(:+) => 16 (just adding things as above)
 
 
+# we may also create enumerators which have a "next" method, as well as use the loop construct to iterate through multiple enumerative objects at the same time. For example
+
+alist = [1,2,3,4]
+blist = [2,4,6,8, 10]
+
+# could also call .each without a block, which would give an enumerator object
+a = alist.to_enum
+b = blist.to_enum
+
+loop do
+  puts "#{a.next} - #{b.next}"
+end
+
+# note that the above terminates before it hits 10, as it will only go until the first enumerator runs out. This is really quite clever.
+
 
